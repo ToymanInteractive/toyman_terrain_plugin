@@ -1,0 +1,435 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/toyman.terraineditor/toy_terrain_editor_plugin_plane.gd" type="Script" id=1]
+[ext_resource path="res://addons/toyman.terraineditor/icons/toy-landscape-brush-raise.png" type="Texture" id=2]
+[ext_resource path="res://addons/toyman.terraineditor/icons/toy-landscape-brush-set-height.png" type="Texture" id=3]
+[ext_resource path="res://addons/toyman.terraineditor/icons/toy-landscape-brush-blur.png" type="Texture" id=4]
+[ext_resource path="res://addons/toyman.terraineditor/icons/toy-landscape-brush-texture.png" type="Texture" id=5]
+
+[node name="landscape" type="HBoxContainer"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="tools-container" type="VBoxContainer" parent="."]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 188.0
+margin_bottom = 564.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin" ]
+
+[node name="tools" type="HBoxContainer" parent="tools-container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 188.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="brush-raise" type="Button" parent="tools-container/tools"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 44.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = true
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 2 )
+flat = false
+align = 1
+
+[node name="brush-set-height" type="Button" parent="tools-container/tools"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_right = 92.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 3 )
+flat = false
+align = 1
+
+[node name="brush-blur" type="Button" parent="tools-container/tools"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_right = 140.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 4 )
+flat = false
+align = 1
+
+[node name="brush-texture" type="Button" parent="tools-container/tools"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_right = 188.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 5 )
+flat = false
+align = 1
+
+[node name="tool-label" type="Label" parent="tools-container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 188.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Raise / Lower Terrain"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="tool-settings-container" type="GridContainer" parent="."]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_right = 445.0
+margin_bottom = 564.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+columns = 3
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="brush-size-label" type="Label" parent="tool-settings-container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 5.0
+margin_right = 67.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Brush Size"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="brush-size-slider" type="HSlider" parent="tool-settings-container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 71.0
+margin_top = 4.0
+margin_right = 191.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 120, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 25.0
+step = 1.0
+page = 0.0
+value = 4.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = true
+focus_mode = 2
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="brush-size-value" type="LineEdit" parent="tool-settings-container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 195.0
+margin_right = 253.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "4"
+align = 1
+focus_mode = 2
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+context_menu_enabled = true
+_sections_unfolded = [ "Caret", "Size Flags" ]
+
+[node name="brush-opacity-label" type="Label" parent="tool-settings-container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 33.0
+margin_right = 67.0
+margin_bottom = 47.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Opacity"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="brush-opacity-slider" type="HSlider" parent="tool-settings-container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 71.0
+margin_top = 32.0
+margin_right = 191.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 25.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="brush-opacity-value" type="LineEdit" parent="tool-settings-container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 195.0
+margin_top = 28.0
+margin_right = 253.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "25"
+align = 1
+focus_mode = 2
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+context_menu_enabled = true
+_sections_unfolded = [ "Caret", "Size Flags" ]
+
+[node name="brush-height-label" type="Label" parent="tool-settings-container"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 116.0
+margin_right = 113.0
+margin_bottom = 141.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Height"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="stub" type="Control" parent="tool-settings-container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 56.0
+margin_right = 67.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="brush-height-value" type="LineEdit" parent="tool-settings-container"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 249.0
+margin_top = 106.0
+margin_right = 413.0
+margin_bottom = 151.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "0"
+align = 1
+focus_mode = 2
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+context_menu_enabled = true
+_sections_unfolded = [ "Caret" ]
+
+[node name="tool-shapes" type="ItemList" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 449.0
+margin_right = 705.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 256, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+items = [ "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false, "", null, false ]
+select_mode = 0
+max_columns = 0
+same_column_width = true
+icon_mode = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="textures" type="ItemList" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 709.0
+margin_right = 965.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 256, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+items = [  ]
+select_mode = 0
+max_columns = 0
+same_column_width = true
+icon_mode = 1
+_sections_unfolded = [ "Rect" ]
+
+
