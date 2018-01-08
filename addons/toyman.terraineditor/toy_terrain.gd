@@ -175,7 +175,7 @@ func _createChunk(x, y):
 	var chunk = Chunk.new();
 	chunk.meshInstance = MeshInstance.new();
 	chunk.meshInstance.set_name('chunk_' + str(x) + '_' + str(y));
-	chunk.meshInstance.set_translation(Vector3(x, 0, y) * CHUNK_SIZE);
+	chunk.meshInstance.set_translation(Vector3(x, 0, y) * CHUNK_SIZE + origin);
 	if material != null:
 		chunk.meshInstance.set_material_override(material);
 	chunk.position = Vector2(x, y);
@@ -278,7 +278,7 @@ func updateChunk(chunk):
 
 	_updateNormalsDataAt(x0, y0, width + 1, height + 1);
 
-	var mesh = Mesher.makeHeightmap(_data, _normals, _colors, x0, y0, width, height, origin);
+	var mesh = Mesher.makeHeightmap(_data, _normals, _colors, x0, y0, width, height);
 	chunk.meshInstance.set_mesh(mesh);
 
 	if !Engine.is_editor_hint():

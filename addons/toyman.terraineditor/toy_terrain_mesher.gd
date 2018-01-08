@@ -9,9 +9,8 @@ tool
 # inputHeights: array of arrays of floats
 # inputNormals: arrays of arrays of Vector3
 # x0, y0, widht, height: sub-rectangle to generate from the above grids
-# origin: Vector3
 # returns: a Mesh
-static func makeHeightmap(inputHeights, inputNormals, inputColors, x0, y0, widht, height, origin):
+static func makeHeightmap(inputHeights, inputNormals, inputColors, x0, y0, widht, height):
 	var maxX = x0 + widht;
 	var maxY = y0 + height;
 
@@ -35,7 +34,7 @@ static func makeHeightmap(inputHeights, inputNormals, inputColors, x0, y0, widht
 		var colorRow = inputColors[y];
 		var normalRow = inputNormals[y];
 		for x in range(x0, maxX + 1):
-			vertices.push_back(Vector3(x - x0, heightRow[x], y - y0) + origin);
+			vertices.push_back(Vector3(x - x0, heightRow[x], y - y0));
 			colors.push_back(colorRow[x]);
 			normals.push_back(normalRow[x]);
 
