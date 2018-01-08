@@ -7,6 +7,7 @@ const Mesher = preload('toy_terrain_mesher.gd');
 
 const CHUNK_SIZE = 16;
 const MAX_TERRAIN_SIZE = 1024;
+const TRIANGLE_HEIGHT = 0.866025403784439;
 
 # Indexes for terrain data channels
 const DATA_HEIGHT = 0;
@@ -175,7 +176,7 @@ func _createChunk(x, y):
 	var chunk = Chunk.new();
 	chunk.meshInstance = MeshInstance.new();
 	chunk.meshInstance.set_name('chunk_' + str(x) + '_' + str(y));
-	chunk.meshInstance.set_translation(Vector3(x, 0, y) * CHUNK_SIZE + origin);
+	chunk.meshInstance.set_translation(Vector3(x, 0, y * TRIANGLE_HEIGHT) * CHUNK_SIZE + origin);
 	if material != null:
 		chunk.meshInstance.set_material_override(material);
 	chunk.position = Vector2(x, y);
@@ -293,7 +294,7 @@ func getTerrainHeight(x, y):
 	return _data[y][x];
 
 func getTerrainValueWorldV(position):
-	return getTerrainHeight(int(position.x), int(position.z));
+	return getTerrainHeight(int(position.x), int(position.z * TRIANGLE_HEIGHT));
 
 func positionIsAbove(position):
 	position -= origin;

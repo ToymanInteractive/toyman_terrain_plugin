@@ -1,5 +1,7 @@
 tool
 
+const TRIANGLE_HEIGHT = 0.866025403784439;
+
 # Note:
 # This is a very slow part of this plugin, due to GDScript mostly.
 # I tried to optimize it without SurfaceTool to reduce calculations,
@@ -33,8 +35,11 @@ static func makeHeightmap(inputHeights, inputNormals, inputColors, x0, y0, widht
 		var heightRow = inputHeights[y];
 		var colorRow = inputColors[y];
 		var normalRow = inputNormals[y];
+		var xShift = 0.0;
+		if (y % 2) > 0:
+			xShift = 0.5;
 		for x in range(x0, maxX + 1):
-			vertices.push_back(Vector3(x - x0, heightRow[x], y - y0));
+			vertices.push_back(Vector3(x - x0 + xShift, heightRow[x], (y - y0) * TRIANGLE_HEIGHT));
 			colors.push_back(colorRow[x]);
 			normals.push_back(normalRow[x]);
 
@@ -45,12 +50,20 @@ static func makeHeightmap(inputHeights, inputNormals, inputColors, x0, y0, widht
 	var i = 0;
 	for y in range(height):
 		for x in range(widht):
-			indices.push_back(i);
-			indices.push_back(i + widht + 2);
-			indices.push_back(i + widht + 1);
-			indices.push_back(i);
-			indices.push_back(i + 1);
-			indices.push_back(i + widht + 2);
+			if (y % 2) > 0:
+				indices.push_back(i);
+				indices.push_back(i + widht + 2);
+				indices.push_back(i + widht + 1);
+				indices.push_back(i);
+				indices.push_back(i + 1);
+				indices.push_back(i + widht + 2);
+			else:
+				indices.push_back(i);
+				indices.push_back(i + 1);
+				indices.push_back(i + widht + 1);
+				indices.push_back(i + 1);
+				indices.push_back(i + widht + 2);
+				indices.push_back(i + widht + 1);
 			i += 1;
 		i += 1;
 
